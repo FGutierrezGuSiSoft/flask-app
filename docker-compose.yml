@@ -1,0 +1,15 @@
+version: '3.6'
+
+services:
+  flask-app:
+    container_name: flask-app
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - './src:/usr/src/app'
+    ports:
+      - 5001:5000
+    environment:
+      - FLASK_ENV=development
+      - FLASK_APP=main.py
